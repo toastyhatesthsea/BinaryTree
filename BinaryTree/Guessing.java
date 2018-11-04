@@ -1,5 +1,6 @@
 package BinaryTree;
 
+import java.util.NoSuchElementException;
 import java.util.Scanner;
 
 public class Guessing
@@ -17,18 +18,28 @@ public class Guessing
     {
         Scanner aScan = new Scanner(System.in);
         boolean done = false;
+        boolean returnAnswer = false;
 
         try
         {
-            System.out.println(aStr);
-            String answer = aScan.nextLine();
-            if (answer.substring(0, 1).toLowerCase().equals("y") || answer.substring(0, 1).toLowerCase().equals("n"))
+            do
             {
-                done = true;
-            }
-        }catch ( !done)
-        {
+                System.out.println(aStr);
+                String answer = aScan.nextLine();
+                if (answer.trim().toLowerCase().equals("yes") || answer.trim().toLowerCase().equals("no"))
+                {
+                    if (answer.trim().toLowerCase().equals("yes"))
+                    {
+                        returnAnswer = true;
+                    }
+                    done = true;
+                }
+            } while (!done);
 
+        } catch (NoSuchElementException e)
+        {
+            e.printStackTrace();
         }
+        return returnAnswer;
     }
 }
