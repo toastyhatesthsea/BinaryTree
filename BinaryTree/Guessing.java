@@ -42,4 +42,19 @@ public class Guessing
         }
         return returnAnswer;
     }
+
+    public static BTNode<String> beginningTree()
+    {
+        BTNode<String> root;
+        BTNode<String> child;
+
+        root = new BTNode<>("Are you a mammal?", null, null);
+
+        child = new BTNode<>("Are you bigger than a cat?", new BTNode("Kangaroo", null, null), new BTNode("Mouse", null , null));
+        root.setLeft(child);
+
+        child = new BTNode<>("Do you live underwater?", new BTNode("Trout", null, null), new BTNode("Robin", null, null));
+        root.setRight(child);
+        return root;
+    }
 }
