@@ -58,3 +58,12 @@ public class Guessing
         return root;
     }
 }
+
+class GuessGame
+{
+    public static void main(String[] argsgs)
+    {
+        Guessing guess = new Guessing();
+        Guessing.beginningTree();
+    }
+}
