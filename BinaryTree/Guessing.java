@@ -99,6 +99,22 @@ public class Guessing
         {
             e.printStackTrace();
         }
+
+        System.out.println("Does the 'correct animal' answer Yes or No to the preceding question?");
+        String questionAnswer = "";
+
+        try
+        {
+            questionAnswer = scan.nextLine();
+        } catch (NoSuchElementException e)
+        {
+            e.printStackTrace();
+        }
+
+        if (questionAnswer.toLowerCase().equals("yes"))
+        {
+
+        }
     }
 }
 
