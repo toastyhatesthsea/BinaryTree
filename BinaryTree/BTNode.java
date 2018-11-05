@@ -42,4 +42,9 @@ public class BTNode <E>
     {
         this.right = right;
     }
+
+    public boolean isLeaf()
+    {
+        return left == null && right == null;
+    }
 }
