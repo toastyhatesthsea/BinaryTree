@@ -57,6 +57,49 @@ public class Guessing
         root.setRight(child);
         return root;
     }
+
+    public static String getCorrectAnswer(String phrase)
+    {
+        return null;
+    }
+
+    public void learn(BTNode current)
+    {
+        Scanner scan = new Scanner(System.in);
+        Object guessAnimal = current.getData();
+        String correctAnimal = "";
+
+        System.out.println("What is the correct animal?");
+        boolean done = false;
+
+        try
+        {
+            correctAnimal = scan.nextLine();
+            if (correctAnimal.matches("\\d"))
+            {
+                do
+                {
+                    System.out.println("Please enter a real animal, thanks");
+                    correctAnimal = scan.nextLine();
+                }while ( !correctAnimal.matches("\\d"));
+            }
+
+        } catch (NoSuchElementException e)
+        {
+            e.printStackTrace();
+        }
+
+        System.out.println("What question can be used to distinguish these animals?");
+        String newQuestion = "";
+
+        try
+        {
+            newQuestion = scan.nextLine();
+        } catch (NoSuchElementException e)
+        {
+            e.printStackTrace();
+        }
+    }
 }
 
 class GuessGame
