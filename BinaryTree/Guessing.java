@@ -63,7 +63,32 @@ public class Guessing
         return null;
     }
 
-    public void learn(BTNode current)
+    public static void play(BTNode current)
+    {
+        while (!current.isLeaf())
+        {
+            if (query((String)current.getData()))
+            {
+                current = current.getLeft();
+            }
+            else
+            {
+                current = current.getRight();
+            }
+
+            System.out.println("My guess is " + current.getData() + " . ");
+            if (!query("Am I Right?"))
+            {
+                learn(current);
+            }
+            else
+            {
+                System.out.println("I is good!");
+            }
+        }
+    }
+
+    public static void learn(BTNode current)
     {
         Scanner scan = new Scanner(System.in);
         Object guessAnimal = current.getData();
@@ -113,7 +138,15 @@ public class Guessing
 
         if (questionAnswer.toLowerCase().equals("yes"))
         {
-
+            current.setData(newQuestion);
+            current.setLeft(new BTNode(correctAnimal, null, null));
+            current.setRight(new BTNode(guessAnimal, null, null));
+        }
+        else
+        {
+            current.setData(newQuestion);
+            current.setLeft(new BTNode(guessAnimal, null, null));
+            current.setRight(new BTNode(correctAnimal, null, null));
         }
     }
 }
