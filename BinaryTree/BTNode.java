@@ -50,10 +50,19 @@ public class BTNode <E>
 
     public static int totalNodes(BTNode root)
     {
+        if (root.isLeaf())
+        {
+            return 1;
+        }
+        else
+        {
+            int leftTotal = totalNodes(root.getLeft());
+            int rightTotal = totalNodes(root.getRight());
+            return leftTotal + rightTotal;
+        }
+
         //TODO Go through left branch until there is no left branches and count the nodes along the way
         //TODO After it hits a node with no left branches, go right and accumulate
         //TODO Then return total nodes back up
-
-        return 0;
     }
 }
