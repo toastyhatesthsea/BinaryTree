@@ -50,20 +50,52 @@ public class BTNode <E>
 
     public static int totalNodes(BTNode root)
     {
-        if (root.isLeaf())
+        if (root == null)
+        {
+            return 0;
+        }
+        else if (root.isLeaf())
         {
             return 1;
         }
         else
         {
-            int leftTotal = totalNodes(root.getLeft()) + 1;
-            int rightTotal = totalNodes(root.getRight()) + 1;
-            return leftTotal + rightTotal;
+            return totalNodes(root.getLeft()) + totalNodes(root.getRight()) + 1;
         }
 
         //TODO Go through left branch until there is no left branches and count the nodes along the way
         //TODO After it hits a node with no left branches, go right and accumulate
         //TODO Then return total nodes back up
+    }
+
+    /**
+     * Calculates the depth of the Tree, which means the furthest branch from the root.
+     * A root of only one has no depth
+     * @param root BTNode
+     * @return int
+     */
+    public static int depth(BTNode root)
+    {
+        if (root == null)
+        {
+            return 0;
+        } else if (root.isLeaf())
+        {
+            return 0;
+        }
+        else
+        {
+            int totalLeft = depth(root.getLeft()) + 1;
+            int totalRight = depth(root.getRight()) + 1;
+            if (totalLeft > totalRight)
+            {
+                return totalLeft;
+            }
+            else
+            {
+                return totalRight;
+            }
+        }
     }
 }
 
@@ -73,7 +105,7 @@ class BTNodeTesters
     {
         BTNode root = Guessing.beginningTree();
 
-        int total = BTNode.totalNodes(root);
+        int total = BTNode.depth(root);
     }
 
 

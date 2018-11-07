@@ -47,13 +47,16 @@ public class Guessing
     {
         BTNode<String> root;
         BTNode<String> child;
+        BTNode<String> child2;
 
         root = new BTNode<>("Are you a mammal?", null, null);
 
         child = new BTNode<>("Are you bigger than a cat?", new BTNode("Kangaroo", null, null), new BTNode("Mouse", null , null));
         root.setLeft(child);
 
-        child = new BTNode<>("Do you live underwater?", new BTNode("Trout", null, null), new BTNode("Robin", null, null));
+        child2 = new BTNode<>("Rawrs", null, null);
+        child = new BTNode<>("Do you live underwater?", new BTNode("Trout", null, null), new BTNode("Robin", null, child2));
+
         root.setRight(child);
         return root;
     }
