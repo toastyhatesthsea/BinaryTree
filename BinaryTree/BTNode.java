@@ -56,8 +56,8 @@ public class BTNode <E>
         }
         else
         {
-            int leftTotal = totalNodes(root.getLeft());
-            int rightTotal = totalNodes(root.getRight());
+            int leftTotal = totalNodes(root.getLeft()) + 1;
+            int rightTotal = totalNodes(root.getRight()) + 1;
             return leftTotal + rightTotal;
         }
 
@@ -66,3 +66,16 @@ public class BTNode <E>
         //TODO Then return total nodes back up
     }
 }
+
+class BTNodeTesters
+{
+    public static void main(String[] argsg)
+    {
+        BTNode root = Guessing.beginningTree();
+
+        int total = BTNode.totalNodes(root);
+    }
+
+
+}
+

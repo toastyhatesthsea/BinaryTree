@@ -159,6 +159,7 @@ class GuessGame
         Guessing.instruct();
         root = Guessing.beginningTree();
 
+
         do
         {
             Guessing.play(root);
