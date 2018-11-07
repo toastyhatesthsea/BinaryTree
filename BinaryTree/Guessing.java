@@ -67,15 +67,14 @@ public class Guessing
     {
         while (!current.isLeaf())
         {
-            if (query((String)current.getData()))
+            if (query((String) current.getData()))
             {
                 current = current.getLeft();
-            }
-            else
+            } else
             {
                 current = current.getRight();
             }
-
+        }
             System.out.println("My guess is " + current.getData() + " . ");
             if (!query("Am I Right?"))
             {
@@ -85,7 +84,6 @@ public class Guessing
             {
                 System.out.println("I is good!");
             }
-        }
     }
 
     public static void learn(BTNode current)
@@ -156,6 +154,17 @@ class GuessGame
     public static void main(String[] argsgs)
     {
         Guessing guess = new Guessing();
-        Guessing.beginningTree();
+
+        BTNode<String> root;
+        Guessing.instruct();
+        root = Guessing.beginningTree();
+
+        do
+        {
+            Guessing.play(root);
+        } while (Guessing.query("Shall we play again?"));
+        System.out.println("Thanks for teaching me");
+
+
     }
 }
